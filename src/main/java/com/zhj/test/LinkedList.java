@@ -1,5 +1,5 @@
 package com.zhj.test;
 
-public class Test1 {
+public class LinkedList {
 
 }

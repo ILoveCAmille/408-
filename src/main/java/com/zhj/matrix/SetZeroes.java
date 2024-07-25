@@ -1,5 +1,8 @@
 package com.zhj.matrix;
 
+
+import java.util.BitSet;
+
 /**
  * 功能描述
  *
@@ -19,6 +22,10 @@ public class SetZeroes {
     }
     public static void setZeroes(int[][] matrix) {
         int m=matrix.length,n=matrix[0].length,up,down,left,right;
+        BitSet[] flags=new BitSet[m];
+        for (int i = 0; i < m; i++) {
+            flags[i]=new BitSet(n);
+        }
         for(int i=0;i<m;i++)
         {
             for(int j=0;j<n;j++)
@@ -26,13 +33,13 @@ public class SetZeroes {
                 if(matrix[i][j]==0)
                 {
                     left--;
-                    while(left>=0) {if(matrix[i][left]!=0)matrix[i][left]=Integer.MIN_VALUE;left--;}
+                    while(left>=0) {flags[i].set(left);left--;}
                     right++;
-                    while(right<=n-1) {if(matrix[i][right]!=0)matrix[i][right]=Integer.MIN_VALUE;right++;}
+                    while(right<=n-1) {flags[i].set(right);right++;}
                     up--;
-                    while(up>=0) {if(matrix[up][j]!=0)matrix[up][j]=Integer.MIN_VALUE;up--;}
+                    while(up>=0) {flags[up].set(j);up--;}
                     down++;
-                    while(down<=m-1) {if(matrix[down][j]!=0)matrix[down][j]=Integer.MIN_VALUE;down++;}
+                    while(down<=m-1) {flags[down].set(j);down++;}
                 }
             }
 
@@ -42,7 +49,7 @@ public class SetZeroes {
         {
             for(int j=0;j<n;j++)
             {
-                if(matrix[i][j]==Integer.MIN_VALUE)
+                if(flags[i].get(j))
                 {
                     matrix[i][j]=0;
                 }

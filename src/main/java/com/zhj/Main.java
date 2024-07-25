@@ -1,20 +1,10 @@
 package com.zhj;
 
-import com.zhj.dynamic.*;
-import com.zhj.hash.GroupAnagrams;
-import com.zhj.hash.TwoSum;
-import com.zhj.search.skiplist.Node;
-import com.zhj.search.skiplist.SkipList;
-import com.zhj.sort.*;
-import com.zhj.tmp.Student;
+import com.zhj.matrix.Rotate12;
 
-import java.util.*;
-import java.util.Random;
 public class Main {
     public static void main(String[] args) {
-        String[] strs=new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
-        for (List<String> groupAnagram : GroupAnagrams.groupAnagrams(strs)) {
-            System.out.println(groupAnagram);
-        }
+        int[][] matrix={{1,2,3},{4,5,6},{7,8,9}};
+        Rotate12.rotate(matrix);
     }
 }

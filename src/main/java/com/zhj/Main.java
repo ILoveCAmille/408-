@@ -1,5 +1,6 @@
 package com.zhj;
 
+import com.zhj.Recursion.DecodeString;
 import com.zhj.matrix.Rotate12;
 import com.zhj.slidingwindow.ContainsNearbyDuplicate;
 import com.zhj.slidingwindow.FindLength;
@@ -15,8 +16,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        char[][] grid=new char[][]{{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0'
-                ,'0'}};
-        System.out.println(NumIslands.numIslands(grid));
+        Scanner in=new Scanner(System.in);
+        String s=in.nextLine();
+        DecodeString decodeString=new DecodeString();
+        System.out.println(decodeString.decodeString(s));
     }
 }

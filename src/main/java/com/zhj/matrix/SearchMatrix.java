@@ -7,7 +7,7 @@ package com.zhj.matrix;
  * @date: 2024年09月07日 13:35
  */
 public class SearchMatrix
-{   //亲测两层二分巨难写
+{   //亲测两层二分巨难写  你会遇到几个问题，1.如果没有答案，你会在图里循环，然后超时   2.如果你创建新的条件，就会破坏正确答案的判断。
    /* public static void main(String[] args){
 //        int target=20;
 //        int[][] matrix={{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}};

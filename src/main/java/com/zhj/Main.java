@@ -7,34 +7,39 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int m,n,tmp,sum;
-        Scanner in=new Scanner(System.in);
-        List<Integer> res=new ArrayList<>();
-        while(in.hasNextInt())
-        {
-            m=in.nextInt();
-            n=in.nextInt();
-            for(int i=m;i<=n;i++)
-            {   tmp=i;
-                sum=0;
-                while(tmp!=0)
-                {
-                    sum+=Math.pow(tmp%10,3);
-                    tmp=tmp/10;
-                }
-                if(sum==i)
-                res.add(i);
-            }
-            if(res.size()==0)
+        Scanner in = new Scanner(System.in);
+        String s=in.nextLine();
+        List<String> list=new ArrayList<>();
+        for(int i=0;i<s.length();i++)
+        {   StringBuilder tmp=new StringBuilder();
+            tmp.delete(0,tmp.length());
+            //拼接英文字符
+            if(Character.isLetter(s.charAt(i)))
             {
-                System.out.println("no");
+                while(i<s.length()&&Character.isLetter(s.charAt(i)))
+                {
+                    tmp.append(s.charAt(i));i++;
+                }
+                list.add(tmp.toString());
+            }
+            //拼接数字
+            else if (Character.isDigit(s.charAt(i))) {
+                while(i<s.length()&&Character.isLetter(s.charAt(i)))
+                {
+                    tmp.append(s.charAt(i));i++;
+                }
+                list.add(tmp.toString());
             }
             else{
-                for (Integer re : res) {
-                    System.out.printf(re+" ");
+                while(i<s.length()&&!Character.isLetterOrDigit(s.charAt(i)))
+                {
+                    tmp.append(s.charAt(i));i++;
                 }
-                System.out.println();
+                list.add(tmp.toString());
             }
+        }
+        for (String s1 : list) {
+            System.out.println(s1);
         }
     }
 }

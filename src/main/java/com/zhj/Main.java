@@ -45,6 +45,7 @@ public class Main {
     }*/
 
     public static String findLongestCommonSubstring (String str1, String str2) {
+        //最长公共子串，暴力法O（n3）
         String str11;
         String str22;
         if(str1.length()>str2.length())
